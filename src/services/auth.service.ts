@@ -1,7 +1,7 @@
 import { Response } from 'express';
-import { Hash } from '../shared/util/hash.util.js';
-import { AppDataSource } from '../data-source.js';
-import { User } from '../entity/user.js';
+import { Hash } from '../shared/util/hash.util';
+import { AppDataSource } from '../data-source';
+import { User } from '../entity/user';
 
 /**
  * A auth service class contain functionality for signup and login.
@@ -14,6 +14,7 @@ class authService {
 
       // Check if email exists
       const existingUser = await userRepo.findOne({ where: { email: data.email } });
+
       if (existingUser) {
         return res.status(400).json({ message: 'Email already exists' });
       }

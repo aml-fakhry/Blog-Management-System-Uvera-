@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import express from 'express';
 import dotenv from 'dotenv';
 import { AppDataSource } from './data-source';
-import { userRelativeRoute, userRouter } from './routes/auth.routes';
+import { userRouter } from './routes/auth.routes';
 
 dotenv.config();
 const PORT = process.env.PORT || 3000;

@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { JWT } from '../shared/util/jwt.util.js';
-import authService from '../services/auth.service.js';
+import { JWT } from '../shared/util/jwt.util';
+import authService from '../services/auth.service';
 
 /**
  * The user router that holds all module routes.

@@ -9,8 +9,8 @@ export class Hash {
    * @param data The data to be hashed.
    * @example const hashedPassword = await Hash.hash('123456');
    */
-  static async hash(data) {
-    const salt = await bcrypt.genSalt(parseInt(process.env.HASHING_SALT_ROUNDS));
+  static async hash(data: string | Buffer<ArrayBufferLike>) {
+    const salt = await bcrypt.genSalt(parseInt(process.env.HASHING_SALT_ROUNDS!));
     return bcrypt.hash(data, salt);
   }
 
@@ -22,7 +22,7 @@ export class Hash {
    *
    */
 
-  static async compare(plainData, hashedData) {
+  static async compare(plainData: string | Buffer<ArrayBufferLike>, hashedData: string) {
     return bcrypt.compare(plainData, hashedData);
   }
 }
