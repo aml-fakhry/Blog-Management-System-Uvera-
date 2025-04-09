@@ -1,3 +1,4 @@
+import { NextFunction, Request, Response } from 'express';
 import { JWT } from '../util/jwt.util.js';
 
 /**
@@ -6,7 +7,7 @@ import { JWT } from '../util/jwt.util.js';
  * @param res The express response.
  * @param next The next function in the pipeline.
  */
-export async function Authenticate(req, res, next) {
+export async function Authenticate(req: Request & { user: any }, res: Response, next: NextFunction) {
   try {
     const jwtData = await JWT.verifyAndDecode(req.headers.authorization || '');
 

@@ -8,12 +8,12 @@ export class JWT {
    * Generates and returns a signed json web token based on the provided data.
    * @param userId The id of the user that owns the access token.
    */
-  static async genToken(userId) {
+  static async genToken(userId: any) {
     const payload = {
       userId,
     };
 
-    return jsonwebtoken.sign(payload, process.env.JWT_PRIVATE_KEY, { expiresIn: '10d' });
+    return jsonwebtoken.sign(payload, process.env.JWT_PRIVATE_KEY!, { expiresIn: '10d' });
   }
 
   /**
@@ -21,9 +21,11 @@ export class JWT {
    * @param token The json web token to be decoded.
    * @param ignoreExpiration if `true` do not validate the expiration of the token, default to `false` and the expiration will be validated.
    */
-  static async verifyAndDecode(token, ignoreExpiration = false) {
+  static async verifyAndDecode(token: string, ignoreExpiration = false) {
     try {
-      return jsonwebtoken.verify(token, process.env.JWT_PRIVATE_KEY, { ignoreExpiration });
+      return jsonwebtoken.verify(token, process.env.JWT_PRIVATE_KEY!, {
+        ignoreExpiration,
+      }) as jsonwebtoken.JwtPayload | null;
     } catch (error) {
       return null;
     }
