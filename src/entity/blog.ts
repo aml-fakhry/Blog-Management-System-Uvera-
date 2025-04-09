@@ -1,6 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, Index } from 'typeorm';
 
 @Entity()
+@Index('tags_index', ['tags'])
 export class Blog {
   @PrimaryGeneratedColumn()
   id!: number;
