@@ -1,7 +1,7 @@
 import { Response } from 'express';
 import { Hash } from '../shared/util/hash.util';
 import { AppDataSource } from '../data-source';
-import { User } from '../entity/user';
+import { User } from '../entity/user.entity';
 
 /**
  * A auth service class contain functionality for signup and login.

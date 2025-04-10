@@ -1,6 +1,7 @@
 import { DataSource } from 'typeorm';
-import { User } from './entity/user';
-import { Blog } from './entity/blog';
+import { User } from './entity/user.entity';
+import { Blog } from './entity/blog.entity';
+import { Tag } from './entity/tag.entity';
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
@@ -11,7 +12,7 @@ export const AppDataSource = new DataSource({
   database: 'Blog-Management-System',
   synchronize: true,
   logging: false,
-  entities: [User, Blog],
+  entities: [User, Blog, Tag],
   ssl: {
     rejectUnauthorized: false,
   },
