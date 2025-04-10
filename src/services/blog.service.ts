@@ -43,20 +43,15 @@ class blogService {
     try {
       const blogRepo = AppDataSource.getRepository(Blog);
 
-      // Set pagination
       const skip = (page - 1) * limit;
-      const take = limit;
 
-      // Build the query for filtering by tags if provided
-      const where = tags.length > 0 ? { tags: In(tags) } : {};
-      console.log({ tags });
+      let query = blogRepo.createQueryBuilder('blog').leftJoinAndSelect('blog.tags', 'tag');
 
-      // Retrieve blogs with pagination and filtering
-      const [blogs, total] = await blogRepo.findAndCount({
-        where,
-        skip,
-        take,
-      });
+      if (tags.length > 0) {
+        query = query.where('tag.name IN (:...tags)', { tags }).groupBy('blog.id').addGroupBy('tag.id');
+      }
+
+      const [blogs, total] = await query.skip(skip).take(limit).getManyAndCount();
 
       return res.status(200).json({
         data: blogs,
