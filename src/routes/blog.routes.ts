@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import blogService from '../services/blog.service';
+import { Authenticate } from '../shared/middleware/auth.middleware';
 
 /**
  * The blog router that holds all blog-related routes.
@@ -12,12 +13,12 @@ export const blogRouter = Router();
 export const blogRelativeRoute = 'blogs';
 
 /** Create a new blog */
-blogRouter.post('/', async (req, res) => {
+blogRouter.post('/', Authenticate, async (req, res) => {
   await blogService.create(res, req.body);
 });
 
 /** Get all blogs with pagination and filtering by tags */
-blogRouter.get('/', async (req, res) => {
+blogRouter.get('/', Authenticate, async (req, res) => {
   const { page = 1, limit = 10, tags = '' } = req.query;
 
   // Parse the tags query into an array
@@ -27,7 +28,7 @@ blogRouter.get('/', async (req, res) => {
 });
 
 /** Update a blog by ID */
-blogRouter.put('/:id', async (req, res) => {
+blogRouter.put('/:id', Authenticate, async (req, res) => {
   const id = parseInt(req.params.id);
   if (isNaN(id)) {
     res.status(400).json({ message: 'Invalid blog ID' });
@@ -38,7 +39,7 @@ blogRouter.put('/:id', async (req, res) => {
 });
 
 /** Delete a blog by ID */
-blogRouter.delete('/:id', async (req, res) => {
+blogRouter.delete('/:id', Authenticate, async (req, res) => {
   const id = parseInt(req.params.id);
   if (isNaN(id)) {
     res.status(400).json({ message: 'Invalid blog ID' });
