@@ -1,9 +1,8 @@
 import 'reflect-metadata';
 import express from 'express';
 import dotenv from 'dotenv';
-import { AppDataSource } from './data-source';
-import { userRouter } from './routes/auth.routes';
-import { blogRelativeRoute, blogRouter } from './routes/blog.routes';
+import { getAppDataSource } from './data-source';
+import { blogRelativeRoute, blogRouter, userRouter } from './routes';
 
 dotenv.config();
 const PORT = process.env.PORT || 3000;
@@ -52,7 +51,7 @@ function setupServer(app: any) {
  * Starts an express server.
  */
 async function startServer() {
-  await AppDataSource.initialize();
+  await getAppDataSource().initialize();
   app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
   });

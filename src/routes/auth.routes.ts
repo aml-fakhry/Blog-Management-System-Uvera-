@@ -23,7 +23,7 @@ userRouter.post('/login', async (req, res) => {
   if (!user) {
     return;
   }
-  const jwt = await JWT.genToken(user?.id ?? 0);
+  const jwt = await JWT.genToken(user?.id ?? 0, user.role);
 
   res.send({ data: { user: user, token: jwt } });
 });

@@ -1,6 +1,6 @@
 import { Response } from 'express';
 import { Hash } from '../shared/util/hash.util';
-import { AppDataSource } from '../data-source';
+import { getAppDataSource } from '../data-source';
 import { User } from '../entity/user.entity';
 
 /**
@@ -10,7 +10,7 @@ class authService {
   /** Sign up new user. */
   async signup(res: Response, data: { email: any; password: any; name: any }) {
     try {
-      const userRepo = AppDataSource.getRepository(User);
+      const userRepo = getAppDataSource().getRepository(User);
 
       // Check if email exists
       const existingUser = await userRepo.findOne({ where: { email: data.email } });
@@ -43,7 +43,7 @@ class authService {
   /** Login user method. */
   async login(res: Response, data: { email: any; password: any }) {
     try {
-      const userRepo = AppDataSource.getRepository(User);
+      const userRepo = getAppDataSource().getRepository(User);
 
       // Find user by email
       const user = await userRepo.findOne({ where: { email: data.email } });

@@ -8,10 +8,15 @@ export class JWT {
    * Generates and returns a signed json web token based on the provided data.
    * @param userId The id of the user that owns the access token.
    */
-  static async genToken(userId: any) {
-    const payload = {
-      userId,
-    };
+  static async genToken(userId: any, role?: any) {
+    const payload = !!role
+      ? {
+          userId,
+        }
+      : {
+          userId,
+          role,
+        };
 
     return jsonwebtoken.sign(payload, process.env.JWT_PRIVATE_KEY!, { expiresIn: '10d' });
   }
