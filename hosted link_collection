@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "a44bc22d-ea14-47b3-8c8a-c273ea36f6a4",
+		"name": "Blog-Management-System with hosted link",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10248046"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "sign up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"aml-fakhry from hosted link\",\r\n    \"email\": \"amlHosted@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://blog-management-system-uvera-production-a5b1.up.railway.app/api/signup",
+							"protocol": "https",
+							"host": [
+								"blog-management-system-uvera-production-a5b1",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"amlHosted@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://blog-management-system-uvera-production-a5b1.up.railway.app/api/login",
+							"protocol": "https",
+							"host": [
+								"blog-management-system-uvera-production-a5b1",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "blog",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc0NDM4NDUwMiwiZXhwIjoxNzQ1MjQ4NTAyfQ.7FdI1AinJz9tPo2qBNYy_RpqxHeaASwXJoYi-qzPB0k",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"craete from hosted\",\r\n    \"content\": \"blabalblaaaaaaaaaa\",\r\n    \"tags\": [\"34f\",\"g545\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://blog-management-system-uvera-production-a5b1.up.railway.app/api/blogs",
+							"protocol": "https",
+							"host": [
+								"blog-management-system-uvera-production-a5b1",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"blogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc0NDI5NjkyNCwiZXhwIjoxNzQ1MTYwOTI0fQ.3LovyHALeEhcRT07veYPGauwtVqhrRLr4K-eOBV-R88",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"dummy 33\",\r\n    \"content\": \"blabalblaaaaaaaaaa\",\r\n    \"tags\": [\"H99\",\"D4\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/blogs/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"blogs",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGUiOiJFZGl0b3IiLCJpYXQiOjE3NDQzNzg4MzgsImV4cCI6MTc0NTI0MjgzOH0.2i3mWvVDjGidxR3lX3j319cAjA9YZJwOozbBJp38SC4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/blogs/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"blogs",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllWithagention",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGUiOiJFZGl0b3IiLCJpYXQiOjE3NDQzNzg4MzgsImV4cCI6MTc0NTI0MjgzOH0.2i3mWvVDjGidxR3lX3j319cAjA9YZJwOozbBJp38SC4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/blogs?tags=H9e9,Dr4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"blogs"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "tags",
+									"value": "H9e9,Dr4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

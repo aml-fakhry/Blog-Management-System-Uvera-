@@ -1,8 +1,9 @@
 openapi: 3.0.0
 info:
-  title: Blog-Management-System
+  title: Blog-Management-System with hosted link
   version: 1.0.0
 servers:
+  - url: https://blog-management-system-uvera-production-a5b1.up.railway.app
   - url: http://localhost:3000
 components:
   securitySchemes:
@@ -24,8 +25,8 @@ paths:
             schema:
               type: object
               example:
-                name: aml-fakhry
-                email: aml@gmail.com
+                name: aml-fakhry from hosted link
+                email: amlHosted@gmail.com
                 password: '1234'
       responses:
         '200':
@@ -43,7 +44,7 @@ paths:
             schema:
               type: object
               example:
-                email: aml@gmail.com
+                email: amlHosted@gmail.com
                 password: '1234'
       responses:
         '200':
@@ -61,18 +62,18 @@ paths:
             schema:
               type: object
               example:
-                title: dummy
+                title: craete from hosted
                 content: blabalblaaaaaaaaaa
                 tags:
-                  - H99
-                  - D4
+                  - 34f
+                  - g545
       parameters:
         - name: Authorization
           in: header
           schema:
             type: string
           example: >-
-            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc0NDI5NjkyNCwiZXhwIjoxNzQ1MTYwOTI0fQ.3LovyHALeEhcRT07veYPGauwtVqhrRLr4K-eOBV-R88
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc0NDM4NDUwMiwiZXhwIjoxNzQ1MjQ4NTAyfQ.7FdI1AinJz9tPo2qBNYy_RpqxHeaASwXJoYi-qzPB0k
       responses:
         '200':
           description: Successful response
@@ -88,7 +89,7 @@ paths:
           schema:
             type: string
           example: >-
-            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc0NDI5NjkyNCwiZXhwIjoxNzQ1MTYwOTI0fQ.3LovyHALeEhcRT07veYPGauwtVqhrRLr4K-eOBV-R88
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGUiOiJFZGl0b3IiLCJpYXQiOjE3NDQzNzg4MzgsImV4cCI6MTc0NTI0MjgzOH0.2i3mWvVDjGidxR3lX3j319cAjA9YZJwOozbBJp38SC4
         - name: tags
           in: query
           schema:
@@ -129,6 +130,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/blogs/11:
     delete:
       tags:
         - blog
@@ -139,7 +141,7 @@ paths:
           schema:
             type: string
           example: >-
-            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc0NDI5NjkyNCwiZXhwIjoxNzQ1MTYwOTI0fQ.3LovyHALeEhcRT07veYPGauwtVqhrRLr4K-eOBV-R88
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGUiOiJFZGl0b3IiLCJpYXQiOjE3NDQzNzg4MzgsImV4cCI6MTc0NTI0MjgzOH0.2i3mWvVDjGidxR3lX3j319cAjA9YZJwOozbBJp38SC4
       responses:
         '200':
           description: Successful response
