@@ -38,7 +38,6 @@ function registerRoutes(app: any) {
 
   /**
    * The base-route prefix for the api.
-   *
    * e.g. `/api/organizations`, `/api/products`.
    */
   const apiBaseRoute = '/api/';
