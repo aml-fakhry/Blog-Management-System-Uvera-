@@ -126,13 +126,8 @@ npm run test
 
 ### 5. API Documentation
 
-```bash
-
-Base URLs:
 - Production: [https://blog-management-system-uvera-production-a5b1.up.railway.app/api-docs](https://blog-management-system-uvera-production-a5b1.up.railway.app/api-docs)(Swagger UI)
 - Local: [http://localhost:3000/api-docs](http://localhost:3000/api-docs)(Swagger UI)
-
-```
 
 ### 6. 📂 Folder Structure
 
