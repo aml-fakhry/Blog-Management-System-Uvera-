@@ -178,9 +178,9 @@ Base URLs:
 To easily test the API, you can download the Postman collection:
 
 1. **Download the Postman Collection JSON file** from the repository:
-   - [Download Postman Collection (Local)](https://github.com/aml-fakhry/Blog-Management-System-Uvera-/blob/main/Blog-Management-System.postman_collection.json)
+   -  Local: [Download Postman Collection](https://github.com/aml-fakhry/Blog-Management-System-Uvera-/blob/main/Blog-Management-System.postman_collection.json)
 
-- [Download Postman Collection (Local)](https://github.com/aml-fakhry/Blog-Management-System-Uvera-/blob/main/Blog-Management-System%20with%20hosted%20link.postman_collection.json)
+   -  Production:[Download Postman Collection](https://github.com/aml-fakhry/Blog-Management-System-Uvera-/blob/main/Blog-Management-System%20with%20hosted%20link.postman_collection.json)
 
 2. **Import the collection into Postman**:
    - Open Postman and go to **File > Import**.
