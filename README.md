@@ -173,7 +173,6 @@ To test the authentication and API endpoints, you can use the following test use
 
 - **Email**: aml@gmail.com
 - **Password**: 1234
--
 
 ### Editor User:
 
