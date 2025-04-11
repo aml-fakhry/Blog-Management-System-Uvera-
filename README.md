@@ -128,11 +128,9 @@ npm run test
 
 ```bash
 
-# From Hosted link
-Visit: https://blog-management-system-uvera-production-a5b1.up.railway.app/api-docs (Swagger UI)
-
-# From local
-Visit: http://localhost:3000/api-docs (Swagger UI)
+Base URLs:
+- Production: [https://blog-management-system-uvera-production-a5b1.up.railway.app/api-docs](https://blog-management-system-uvera-production-a5b1.up.railway.app/api-docs)(Swagger UI)
+- Local: [http://localhost:3000/api-docs](http://localhost:3000/api-docs)(Swagger UI)
 
 ```
 
@@ -170,6 +168,15 @@ Visit: http://localhost:3000/api-docs (Swagger UI)
     └── app.ts
     └── data-source.ts
 ```
+
+## 🔌 API Endpoints
+
+Base URLs:
+
+- Production: [https://blog-management-system-uvera-production-a5b1.up.railway.app](https://blog-management-system-uvera-production-a5b1.up.railway.app)
+- Local: [http://localhost:3000](http://localhost:3000)
+
+---
 
 ### 👨‍💻 Author
 
