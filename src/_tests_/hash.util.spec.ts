@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { Hash } from '../hash.util'; // adjust path as needed
+import { Hash } from '../shared/util/hash.util';
 
 jest.mock('bcrypt');
 
@@ -37,4 +37,3 @@ describe('Hash Utility', () => {
     });
   });
 });
-

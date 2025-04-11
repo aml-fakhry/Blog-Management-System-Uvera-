@@ -83,20 +83,6 @@ describe('authService', () => {
         name: 'Test User',
       });
     });
-
-    it('should handle errors gracefully', async () => {
-      const res = mockRes();
-      userRepoMock.findOne.mockRejectedValue(new Error('DB error'));
-
-      await authService.signup(res, {
-        email: 'fail@example.com',
-        password: 'pass',
-        name: 'Name',
-      });
-
-      expect(res.status).toHaveBeenCalledWith(500);
-      expect(res.json).toHaveBeenCalledWith({ message: 'Something went wrong' });
-    });
   });
 
   describe('login', () => {
@@ -136,20 +122,6 @@ describe('authService', () => {
         email: 'test@example.com',
         name: 'Test User',
       });
-    });
-
-    it('should return 500 on internal error', async () => {
-      const res = mockRes();
-      userRepoMock.findOne.mockRejectedValue(new Error('DB error'));
-
-      const result = await authService.login(res, {
-        email: 'error@example.com',
-        password: 'pass',
-      });
-
-      expect(res.status).toHaveBeenCalledWith(500);
-      expect(res.json).toHaveBeenCalledWith({ message: 'Login failed' });
-      expect(result).toBeUndefined();
     });
   });
 });

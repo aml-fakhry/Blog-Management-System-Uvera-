@@ -12,10 +12,10 @@ export class JWT {
     const payload = !!role
       ? {
           userId,
+          role,
         }
       : {
           userId,
-          role,
         };
 
     return jsonwebtoken.sign(payload, process.env.JWT_PRIVATE_KEY!, { expiresIn: '10d' });

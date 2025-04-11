@@ -1,5 +1,6 @@
 import jsonwebtoken from 'jsonwebtoken';
-import { JWT } from '../jwt.util'; // adjust the path as needed
+import { JWT } from '../shared/util/jwt.util';
+
 
 jest.mock('jsonwebtoken');
 

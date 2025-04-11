@@ -12,40 +12,6 @@ export const userRouter = Router();
  */
 export const userRelativeRoute = '';
 
-/**
- * @swagger
- * tags:
- *   name: Auth
- *   description: User authentication
- */
-
-/**
- * @swagger
- * /signup:
- *   post:
- *     summary: Sign up a new user
- *     tags: [Auth]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - email
- *               - password
- *             properties:
- *               email:
- *                 type: string
- *               password:
- *                 type: string
- *     responses:
- *       201:
- *         description: User created successfully
- *       400:
- *         description: Invalid input
- */
-
 /** Sign up new user. */
 userRouter.post('/signup', async (req, res) => {
   await authService.signup(res, req.body);
@@ -57,7 +23,7 @@ userRouter.post('/login', async (req, res) => {
   if (!user) {
     return;
   }
-  const jwt = await JWT.genToken(user?.id ?? 0, user.role);
+  const jwt = await JWT.genToken(user?.id ?? 0, user.role?.name);
 
   res.send({ data: { user: user, token: jwt } });
 });

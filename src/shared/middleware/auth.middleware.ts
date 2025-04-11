@@ -30,32 +30,24 @@ export async function Authenticate(req: Request & { user?: any }, res: Response,
     console.log({ error });
   }
 }
-// export function Authorize(...claims: Roles[]) {
-//   return async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-//     try {
-//       /**
-//        * Gets the unsigned json web token from the request's authorization header.
-//        */
-//       const jwtData = await JWT.verifyAndDecode(req.headers.authorization ?? '');
 
-//       /**
-//        * Check validity & expiration.
-//        */
-//       if (jwtData) {
-//         /**
-//          * Check authority by user role.
-//          */
-//         if (hasClaims(claims, jwtData.claims)) {
-//           req.user = {
-//             userId: jwtData.userId,
-//             companyId: jwtData.companyId,
-//             jwtId: jwtData.id,
-//           };
-//           next();
-//         }
-//       }
-//     } catch (error) {
-//       console.log({ error });
-//     }
-//   };
-// }
+/** Access is granted if the user has any of the provided roles */
+export function Authorize(...roles: Roles[]) {
+  return async (req: Request & { user?: any }, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      if (roles.length) {
+        const authorized = roles.some((role) => role === req.user.role);
+        if (!authorized) {
+          res.status(401).send('Access denied');
+          return;
+        }
+      }
+
+      next();
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal server error');
+      return;
+    }
+  };
+}

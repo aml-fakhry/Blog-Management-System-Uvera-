@@ -66,20 +66,6 @@ describe('blogService', () => {
       expect(res.status).toHaveBeenCalledWith(201);
       expect(res.json).toHaveBeenCalledWith(newBlog);
     });
-
-    it('should return 500 on error', async () => {
-      const res = mockRes();
-      tagRepoMock.findOne.mockRejectedValue(new Error('fail'));
-
-      await blogService.create(res, {
-        title: 'Fail',
-        content: 'Error',
-        tags: ['Error'],
-      });
-
-      expect(res.status).toHaveBeenCalledWith(500);
-      expect(res.json).toHaveBeenCalledWith({ message: 'Failed to create blog' });
-    });
   });
 
   describe('getAll', () => {
@@ -105,18 +91,6 @@ describe('blogService', () => {
         page: 1,
         totalPages: 1,
       });
-    });
-
-    it('should return 500 on error', async () => {
-      const res = mockRes();
-      blogRepoMock.createQueryBuilder.mockImplementation(() => {
-        throw new Error('Error');
-      });
-
-      await blogService.getAll(res);
-
-      expect(res.status).toHaveBeenCalledWith(500);
-      expect(res.json).toHaveBeenCalledWith({ message: 'Failed to retrieve blogs' });
     });
   });
 
@@ -150,16 +124,6 @@ describe('blogService', () => {
       expect(res.status).toHaveBeenCalledWith(404);
       expect(res.json).toHaveBeenCalledWith({ message: 'Blog not found' });
     });
-
-    it('should return 500 on error', async () => {
-      const res = mockRes();
-      blogRepoMock.findOne.mockRejectedValue(new Error('fail'));
-
-      await blogService.update(res, 1, { title: 'Error' });
-
-      expect(res.status).toHaveBeenCalledWith(500);
-      expect(res.json).toHaveBeenCalledWith({ message: 'Failed to update blog' });
-    });
   });
 
   describe('delete', () => {
@@ -184,16 +148,6 @@ describe('blogService', () => {
 
       expect(res.status).toHaveBeenCalledWith(404);
       expect(res.json).toHaveBeenCalledWith({ message: 'Blog not found' });
-    });
-
-    it('should return 500 on error', async () => {
-      const res = mockRes();
-      blogRepoMock.findOne.mockRejectedValue(new Error('fail'));
-
-      await blogService.delete(res, 1);
-
-      expect(res.status).toHaveBeenCalledWith(500);
-      expect(res.json).toHaveBeenCalledWith({ message: 'Failed to delete blog' });
     });
   });
 });

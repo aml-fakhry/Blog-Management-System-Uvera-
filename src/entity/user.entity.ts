@@ -15,6 +15,6 @@ export class User {
   @Column()
   password!: string;
 
-  @ManyToOne(() => Role)
+  @ManyToOne(() => Role, { eager: true })
   role!: Role;
 }
