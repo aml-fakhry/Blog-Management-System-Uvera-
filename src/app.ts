@@ -1,8 +1,11 @@
 import 'reflect-metadata';
 import express from 'express';
 import dotenv from 'dotenv';
+import swaggerUi from 'swagger-ui-express';
+import swaggerJsdoc from 'swagger-jsdoc';
 import { getAppDataSource } from './data-source';
 import { blogRelativeRoute, blogRouter, userRouter } from './routes';
+import { swaggerOptions } from './swager';
 
 dotenv.config();
 const PORT = process.env.PORT || 3000;
@@ -25,6 +28,15 @@ function setRequestOptions(app: any) {
 }
 
 function registerRoutes(app: any) {
+  /**
+   * Initialize swagger-jsdoc.
+   * Swagger UI route.
+   */
+
+  const swaggerSpec = swaggerJsdoc(swaggerOptions);
+
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
   /**
    * The base-route prefix for the api.
    *

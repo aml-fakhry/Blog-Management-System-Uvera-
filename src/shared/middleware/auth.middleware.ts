@@ -1,6 +1,10 @@
 import { NextFunction, Request, Response } from 'express';
 import { JWT } from '../util/jwt.util';
 
+export enum Roles {
+  ADMIN = 'admin',
+  EDITOR = 'editor',
+}
 /**
  * Authenticates the coming request by validating the jwt against validity and expiration.
  * @param req The express request.
@@ -26,7 +30,7 @@ export async function Authenticate(req: Request & { user?: any }, res: Response,
     console.log({ error });
   }
 }
-// export function Authorize(...claims: Claims[]) {
+// export function Authorize(...claims: Roles[]) {
 //   return async (req: Request, res: Response, next: NextFunction): Promise<void> => {
 //     try {
 //       /**
