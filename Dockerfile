@@ -12,7 +12,9 @@ RUN npm ci
 COPY tsconfig.json ./
 COPY src ./src
 
+
 # Build TypeScript code
+COPY post-build.js ./
 RUN npm run build
 
 # ---- Production Image ----

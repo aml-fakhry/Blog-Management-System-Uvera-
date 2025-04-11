@@ -32,8 +32,7 @@ function registerRoutes(app: any) {
    * Initialize swagger-jsdoc.
    * Swagger UI route.
    */
-  const swaggerDocument = YAML.load(path.resolve(__dirname, '../src/docs/collection.yml'));
-
+  const swaggerDocument = YAML.load(path.resolve(__dirname, './docs/collection.yml'));
 
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 

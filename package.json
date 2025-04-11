@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/app.ts",
      "test": "jest",
-     "build": "tsc"
+     "build": "tsc && node post-build.js"
   },
   "keywords": [],
   "author": "",
