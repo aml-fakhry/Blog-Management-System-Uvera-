@@ -10,6 +10,7 @@ A simple and powerful blog management system that allows users to register, log 
 - Tag-based filtering and pagination
 - Swagger API documentation
 - PostgreSQL with TypeORM
+- Deployed database using Aiven
 - Dockerized setup for easy deployment
 
 ### 🔒 Authentication & Authorization
@@ -178,9 +179,10 @@ Base URLs:
 To easily test the API, you can download the Postman collection:
 
 1. **Download the Postman Collection JSON file** from the repository:
-   -  Local: [Download Postman Collection](https://github.com/aml-fakhry/Blog-Management-System-Uvera-/blob/main/Blog-Management-System.postman_collection.json)
 
-   -  Production:[Download Postman Collection](https://github.com/aml-fakhry/Blog-Management-System-Uvera-/blob/main/Blog-Management-System%20with%20hosted%20link.postman_collection.json)
+   - Local: [Download Postman Collection](https://github.com/aml-fakhry/Blog-Management-System-Uvera-/blob/main/Blog-Management-System.postman_collection.json)
+
+   - Production:[Download Postman Collection](https://github.com/aml-fakhry/Blog-Management-System-Uvera-/blob/main/Blog-Management-System%20with%20hosted%20link.postman_collection.json)
 
 2. **Import the collection into Postman**:
    - Open Postman and go to **File > Import**.
