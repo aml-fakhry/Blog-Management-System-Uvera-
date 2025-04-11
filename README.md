@@ -165,7 +165,7 @@ npm run test
     └── data-source.ts
 ```
 
-## 🧪 Test Users
+## 🧪 For Testing Purpose
 
 To test the authentication and API endpoints, you can use the following test user credentials:
 
@@ -173,13 +173,12 @@ To test the authentication and API endpoints, you can use the following test use
 
 - **Email**: aml@gmail.com
 - **Password**: 1234
-- **Role**: Admin
+-
 
 ### Editor User:
 
 - **Email**: uvera@gmail.com
 - **Password**: 1234
-- **Role**: Editor
 
 Use these credentials when testing the login and role-based access control in the API.
 
