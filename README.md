@@ -103,14 +103,70 @@ DB_NAME=Blog-Management-System
 
 ```
 
-### 3. Set Environment Variables
+### 3. Install Dependencies
+
+```bash
+npm install
+
+```
+
+### 4. Run the Application
 
 ```bash
 # Development
 npm run dev
 
-# Production
+# Build
 npm run build
-npm start
 
+# Test
+npm run test
+
+```
+
+### 5. API Documentation
+
+```bash
+
+# From Hosted link
+Visit: https://blog-management-system-uvera-production-a5b1.up.railway.app/api-docs (Swagger UI)
+
+# From local
+Visit: http://localhost:3000/api-docs (Swagger UI)
+
+```
+
+### 6. 📂 Folder Structure
+
+```bash
+└── 📁src
+    └── 📁_tests_
+        └── auth.service.spec.ts
+        └── blog.service.spec.ts
+        └── hash.util.spec.ts
+        └── jwt.util.spec.ts
+    └── 📁docs
+        └── collection.yml
+    └── 📁entity
+        └── blog.entity.ts
+        └── index.ts
+        └── role.entity.ts
+        └── tag.entity.ts
+        └── user.entity.ts
+    └── 📁routes
+        └── auth.routes.ts
+        └── blog.routes.ts
+        └── index.ts
+    └── 📁services
+        └── auth.service.ts
+        └── blog.service.ts
+    └── 📁shared
+        └── 📁middleware
+            └── auth.middleware.ts
+            └── roles.enum.ts
+        └── 📁util
+            └── hash.util.ts
+            └── jwt.util.ts
+    └── app.ts
+    └── data-source.ts
 ```
