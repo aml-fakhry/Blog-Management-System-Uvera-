@@ -5,7 +5,8 @@
   "main": "app.ts",
   "scripts": {
     "dev": "nodemon src/app.ts",
-     "test": "jest"
+     "test": "jest",
+     "build": "tsc"
   },
   "keywords": [],
   "author": "",
