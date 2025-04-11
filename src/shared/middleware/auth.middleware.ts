@@ -1,10 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import { JWT } from '../util/jwt.util';
+import { Roles } from './roles.enum';
 
-export enum Roles {
-  ADMIN = 'admin',
-  EDITOR = 'editor',
-}
 /**
  * Authenticates the coming request by validating the jwt against validity and expiration.
  * @param req The express request.

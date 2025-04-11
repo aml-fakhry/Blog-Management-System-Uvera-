@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import blogService from '../services/blog.service';
-import { Authenticate, Authorize, Roles } from '../shared/middleware/auth.middleware';
+import { Authenticate, Authorize } from '../shared/middleware/auth.middleware';
+import { Roles } from '../shared/middleware/roles.enum';
 
 /**
  * The blog router that holds all blog-related routes.
